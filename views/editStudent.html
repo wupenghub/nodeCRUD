@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form action="/students/edit" method="post">
+    <input type="hidden" class="form-control" name="id" value="{{student.id}}">
+    <div class="form-group">
+        <label>姓名</label>
+        <input type="text" class="form-control" name="name" placeholder="请输入姓名" value="{{student.name}}">
+    </div>
+    <div class="form-group">
+        <label>性别</label>
+        <div>
+            {{if student.gender == 0}}
+            <label>
+                <input type="radio" name="gender" value="0" checked>男</label>
+            <label>
+                <input type="radio" name="gender" value="1">女</label>
+            {{else}}
+            <label>
+                <input type="radio" name="gender" value="0">男</label>
+            <label>
+                <input type="radio" name="gender" value="1" checked>女</label>
+            {{/if}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>年龄</label>
+        <input type="number" name="age" class="form-control" value="{{student.age}}">
+    </div>
+    <div class="form-group">
+        <label>爱好</label>
+        <input type="text" name="hobbies" class="form-control" value="{{student.hobbies}}">
+    </div>
+    <button type="submit" class="btn btn-default">修改</button>
+</form>
+
+</body>
+</html>
